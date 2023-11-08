@@ -10,6 +10,7 @@ public class Test {
 
 	public void setHola(String hola) {
 		Hola = hola;
+		//xd
 	}
 	
 	
