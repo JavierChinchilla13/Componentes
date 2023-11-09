@@ -7,9 +7,7 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
-import com.cci.demo.relacionUnoUno.JoinColumn;
-import com.cci.demo.relacionUnoUno.OneToOne;
-import com.cci.demo.relacionUnoUno.Persona;
+
 
 /**
  * Entity implementation class for Entity: Vacaciones
