@@ -36,7 +36,6 @@ public class Empleados implements Serializable {
 	}   
 	
 	
-	
 
 	public String getDireccion() {
 		return Direccion;

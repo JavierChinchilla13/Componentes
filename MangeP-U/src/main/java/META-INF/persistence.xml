@@ -3,6 +3,8 @@
 	<persistence-unit name="MangeP-U" transaction-type="RESOURCE_LOCAL">
 		<class>Empleados</class>
 		<class>com.cci.manage.Empleados</class>
+		<class>com.cci.manage.Proyecto</class>
+		<class>com.cci.manage.DetallesProyecto</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/managep-u"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
