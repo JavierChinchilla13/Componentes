@@ -1,3 +1,4 @@
+package com.cci.manage;
 
 
 import java.io.Serializable;
