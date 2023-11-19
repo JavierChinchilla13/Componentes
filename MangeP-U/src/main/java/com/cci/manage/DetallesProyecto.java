@@ -21,7 +21,7 @@ public class DetallesProyecto implements Serializable {
 	private Integer fk_proyecto;
 	private Integer fk_empleado;
 	private String Rol;
-	@ManyToMany (mappedBy="detallesproyectos")
+	@ManyToMany (mappedBy="detallesproyectoss")
 	private Set<Empleados> DetalleProyecto;
 	private static final long serialVersionUID = 1L;
 
