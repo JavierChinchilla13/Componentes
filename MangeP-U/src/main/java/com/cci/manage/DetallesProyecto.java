@@ -69,5 +69,18 @@ public class DetallesProyecto implements Serializable {
 	public void setRol(String Rol) {
 		this.Rol = Rol;
 	}
+	public Set<Empleados> getEmpleados() {
+		return empleados;
+	}
+	public void setEmpleados(Set<Empleados> empleados) {
+		this.empleados = empleados;
+	}
+	public Set<Proyecto> getProyectos() {
+		return proyectos;
+	}
+	public void setProyectos(Set<Proyecto> proyectos) {
+		this.proyectos = proyectos;
+	}
+	
    
 }
