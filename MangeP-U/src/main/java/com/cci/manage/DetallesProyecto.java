@@ -3,6 +3,8 @@ package com.cci.manage;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Set;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,8 @@ public class DetallesProyecto implements Serializable {
 	private Integer fk_proyecto;
 	private Integer fk_empleado;
 	private String Rol;
+	@ManyToMany (mappedBy="detallesproyectos")
+	private Set<Empleados> DetalleProyecto;
 	private static final long serialVersionUID = 1L;
 
 	public DetallesProyecto() {
