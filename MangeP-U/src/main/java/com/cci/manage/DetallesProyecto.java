@@ -21,8 +21,21 @@ public class DetallesProyecto implements Serializable {
 	private Integer fk_proyecto;
 	private Integer fk_empleado;
 	private String Rol;
-	@ManyToMany (mappedBy="detallesproyectoss")
-	private Set<Empleados> DetalleProyecto;
+	@ManyToMany
+    @JoinTable(
+        name = "DetallesProyecto_Empleado",
+        joinColumns = @JoinColumn(name = "fk_detallesproyecto"),
+        inverseJoinColumns = @JoinColumn(name = "fk_empleado")
+    )
+    private Set<Empleados> empleados;
+
+    @ManyToMany
+    @JoinTable(
+        name = "DetallesProyecto_Proyecto",
+        joinColumns = @JoinColumn(name = "fk_detallesproyecto"),
+        inverseJoinColumns = @JoinColumn(name = "fk_proyecto")
+    )
+    private Set<Proyecto> proyectos;
 	private static final long serialVersionUID = 1L;
 
 	public DetallesProyecto() {
