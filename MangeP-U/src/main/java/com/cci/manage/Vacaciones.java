@@ -17,7 +17,7 @@ import javax.persistence.*;
 
 public class Vacaciones implements Serializable {
 	
-	
+	@Id
 	private Integer idVacaciones;
 	private Integer dias;
 	private Date fech_Inicio;

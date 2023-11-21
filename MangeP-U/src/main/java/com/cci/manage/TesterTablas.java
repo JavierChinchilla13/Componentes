@@ -11,35 +11,46 @@ public class TesterTablas {
 	
 	public static void main(String[] args) {
 		
-		//Aquí se escriben las sentencias :v
+
+		try {
+			startEntityManagerFactory();
+			
+			em = entityManagerFactory.createEntityManager();
+			
+			
+			
+			stopEntityManagerFactory();
+			
+			System.out.println("Done");
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 	
-	public static void startEntityManagerFactory() {
-		if (entityManagerFactory == null) {
-			try {
-				entityManagerFactory = Persistence
-						.createEntityManagerFactory("MangeP-U");
-				em = entityManagerFactory.createEntityManager();
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-	public static void stopEntityManagerFactory() {
-		if (entityManagerFactory != null) {
-			if (entityManagerFactory.isOpen()) {
-				try {
-					entityManagerFactory.close();
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			em.close();
-			entityManagerFactory = null;
-		}
-	}
+	public static void startEntityManagerFactory() throws Exception {
+        if (entityManagerFactory == null) {
+            try {
+                entityManagerFactory = Persistence.createEntityManagerFactory("MangeP-U");
+                em = entityManagerFactory.createEntityManager();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+	public static void stopEntityManagerFactory() throws Exception {
+        if (entityManagerFactory != null) {
+            if (entityManagerFactory.isOpen()) {
+                try {
+                    entityManagerFactory.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            entityManagerFactory = null;
+        }
+    }
 
 }

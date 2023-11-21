@@ -12,16 +12,20 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@IdClass(DetallesProyectoId.class)
 public class DetallesProyecto implements Serializable {
 
 	   
-	@Id
-	private Integer id;
-	private Integer fk_proyecto;
-	private Integer fk_empleado;
-	private String Rol;
-	@ManyToMany
+
+    @Id
+    private Integer fk_proyecto;
+
+    @Id
+    private Integer fk_empleado;
+
+    private String Rol;
+
+    @ManyToMany
     @JoinTable(
         name = "DetallesProyecto_Empleado",
         joinColumns = @JoinColumn(name = "fk_detallesproyecto"),
@@ -36,17 +40,11 @@ public class DetallesProyecto implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "fk_proyecto")
     )
     private Set<Proyecto> proyectos;
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
 	public DetallesProyecto() {
 		super();
-	}   
-	public Integer getId() {
-		return this.id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}   
 	public Integer getFk_proyecto() {
 		return this.fk_proyecto;
