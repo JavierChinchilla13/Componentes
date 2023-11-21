@@ -12,54 +12,27 @@ import javax.persistence.*;
  *
  */
 @Entity
-@IdClass(DetallesProyectoId.class)
 public class DetallesProyecto implements Serializable {
 
 	   
 
     @Id
-    private Integer fk_proyecto;
+    @ManyToOne
+    private Proyecto fk_proyecto;
 
     @Id
-    private Integer fk_empleado;
+    @ManyToOne 
+    private Empleados fk_empleado;
 
     private String Rol;
-
-    @ManyToMany
-    @JoinTable(
-        name = "DetallesProyecto_Empleado",
-        joinColumns = @JoinColumn(name = "fk_detallesproyecto"),
-        inverseJoinColumns = @JoinColumn(name = "fk_empleado")
-    )
-    private Set<Empleados> empleados;
-
-    @ManyToMany
-    @JoinTable(
-        name = "DetallesProyecto_Proyecto",
-        joinColumns = @JoinColumn(name = "fk_detallesproyecto"),
-        inverseJoinColumns = @JoinColumn(name = "fk_proyecto")
-    )
-    private Set<Proyecto> proyectos;
+   
 
     private static final long serialVersionUID = 1L;
 
 	public DetallesProyecto() {
 		super();
 	}   
-	public Integer getFk_proyecto() {
-		return this.fk_proyecto;
-	}
-
-	public void setFk_proyecto(Integer fk_proyecto) {
-		this.fk_proyecto = fk_proyecto;
-	}   
-	public Integer getFk_empleado() {
-		return this.fk_empleado;
-	}
-
-	public void setFk_empleado(Integer fk_empleado) {
-		this.fk_empleado = fk_empleado;
-	}   
+	 
 	public String getRol() {
 		return this.Rol;
 	}
@@ -67,18 +40,24 @@ public class DetallesProyecto implements Serializable {
 	public void setRol(String Rol) {
 		this.Rol = Rol;
 	}
-	public Set<Empleados> getEmpleados() {
-		return empleados;
+
+	public Proyecto getFk_proyecto() {
+		return fk_proyecto;
 	}
-	public void setEmpleados(Set<Empleados> empleados) {
-		this.empleados = empleados;
+
+	public void setFk_proyecto(Proyecto fk_proyecto) {
+		this.fk_proyecto = fk_proyecto;
 	}
-	public Set<Proyecto> getProyectos() {
-		return proyectos;
+
+	public Empleados getFk_empleado() {
+		return fk_empleado;
 	}
-	public void setProyectos(Set<Proyecto> proyectos) {
-		this.proyectos = proyectos;
+
+	public void setFk_empleado(Empleados fk_empleado) {
+		this.fk_empleado = fk_empleado;
 	}
+	
+	
 	
    
 }

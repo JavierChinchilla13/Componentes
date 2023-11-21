@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -21,10 +22,7 @@ public class Proyecto implements Serializable {
 	private Integer Id;
 	private String nombreProyecto;
 	private String Descripcion;
-	private  Date FechaInicio;
-	private  Date FechaFin;
-	@ManyToMany(mappedBy = "proyectos")
-    private Set<DetallesProyecto> detallesProyectos;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Proyecto() {
@@ -53,20 +51,6 @@ public class Proyecto implements Serializable {
 		this.Descripcion = Descripcion;
 	}
 
-	public Date getFechaFin() {
-		return FechaFin;
-	}
-
-	public void setFechaFin(Date fechaFin) {
-		FechaFin = fechaFin;
-	}
-
-	public Date getFechaInicio() {
-		return FechaInicio;
-	}
-
-	public void setFechaInicio(Date fechaInicio) {
-		FechaInicio = fechaInicio;
-	}
+	
    
 }

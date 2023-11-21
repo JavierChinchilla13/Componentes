@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,7 +27,6 @@ public class Empleados implements Serializable {
 	private String CV;
 	private String Direccion;
 	private Integer Cedulaa;
-
 	private static final long serialVersionUID = 1L;
 
 	public Empleados() {
