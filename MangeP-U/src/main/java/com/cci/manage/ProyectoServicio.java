@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-public class ProyectoServicio implements ICrud<Proyecto> {
+public class ProyectoServicio implements ICrud<Projecto> {
 	
 	public ProyectoServicio(){
 		
@@ -12,9 +12,9 @@ public class ProyectoServicio implements ICrud<Proyecto> {
 	}
 
 	@Override
-	public Proyecto buscarPK(EntityManager em, Object obj) {
+	public Projecto buscarPK(EntityManager em, Object obj) {
 		
-		Proyecto proyectoLocalizado = em.find(Proyecto.class, obj);
+		Projecto proyectoLocalizado = em.find(Projecto.class, obj);
 		if (proyectoLocalizado != null) {
 			return proyectoLocalizado;
 		}
@@ -23,10 +23,10 @@ public class ProyectoServicio implements ICrud<Proyecto> {
 	}
 
 	@Override
-	public List<Proyecto> listar(EntityManager em) {
+	public List<Projecto> listar(EntityManager em) {
 		
-		String jpql = "Select t From " + Proyecto.class.getSimpleName() + " t";
-		List<Proyecto> lista = em.createQuery(jpql, Proyecto.class).getResultList();
+		String jpql = "Select t From " + Projecto.class.getSimpleName() + " t";
+		List<Projecto> lista = em.createQuery(jpql, Projecto.class).getResultList();
 
 		return lista;
 	

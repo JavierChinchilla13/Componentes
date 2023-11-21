@@ -18,7 +18,7 @@ public class DetallesProyecto implements Serializable {
 
     @Id
     @ManyToOne
-    private Proyecto fk_proyecto;
+    private Projecto fk_proyecto;
 
     @Id
     @ManyToOne 
@@ -41,11 +41,11 @@ public class DetallesProyecto implements Serializable {
 		this.Rol = Rol;
 	}
 
-	public Proyecto getFk_proyecto() {
+	public Projecto getFk_proyecto() {
 		return fk_proyecto;
 	}
 
-	public void setFk_proyecto(Proyecto fk_proyecto) {
+	public void setFk_proyecto(Projecto fk_proyecto) {
 		this.fk_proyecto = fk_proyecto;
 	}
 
