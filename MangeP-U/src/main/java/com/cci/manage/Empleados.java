@@ -26,7 +26,14 @@ public class Empleados implements Serializable {
 	private Integer Vacaciones;
 	private String CV;
 	private String Direccion;
-	private Integer Cedulaa;
+	private Integer Cedula;
+	private String Correo;
+	private String Password;
+	private Date FechaIngreso;
+	private Date FechaRetiro;
+	private String estado;
+	private String tipo;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Empleados() {
@@ -37,6 +44,52 @@ public class Empleados implements Serializable {
 	
 	
 
+	public Empleados(Integer id, String nombre, String apellido, Date cumpleaños, Integer telefono, Integer vacaciones,
+			String cV, String direccion, Integer cedula, String correo, String password, Date fechaIngreso,
+			Date fechaRetiro, String estado, String tipo) {
+		super();
+		this.id = id;
+		Nombre = nombre;
+		Apellido = apellido;
+		Cumpleaños = cumpleaños;
+		Telefono = telefono;
+		Vacaciones = vacaciones;
+		CV = cV;
+		Direccion = direccion;
+		Cedula = cedula;
+		Correo = correo;
+		Password = password;
+		FechaIngreso = fechaIngreso;
+		FechaRetiro = fechaRetiro;
+		this.estado = estado;
+		this.tipo = tipo;
+	}
+
+
+
+
+	public Empleados(Integer id, String nombre, String apellido, Date cumpleaños, Integer telefono, String direccion,
+			Integer cedula, String correo, String password, Date fechaIngreso, Date fechaRetiro, String estado,
+			String tipo) {
+		super();
+		this.id = id;
+		Nombre = nombre;
+		Apellido = apellido;
+		Cumpleaños = cumpleaños;
+		Telefono = telefono;
+		Direccion = direccion;
+		Cedula = cedula;
+		Correo = correo;
+		Password = password;
+		FechaIngreso = fechaIngreso;
+		FechaRetiro = fechaRetiro;
+		this.estado = estado;
+		this.tipo = tipo;
+	}
+
+
+
+
 	public String getDireccion() {
 		return Direccion;
 	}
@@ -45,12 +98,13 @@ public class Empleados implements Serializable {
 		Direccion = direccion;
 	}
 
-	public Integer getCedulaa() {
-		return Cedulaa;
+
+	public Integer getCedula() {
+		return Cedula;
 	}
 
-	public void setCedulaa(Integer cedula) {
-		Cedulaa= cedula;
+	public void setCedula(Integer cedula) {
+		Cedula = cedula;
 	}
 
 	public Integer getId() {
@@ -102,5 +156,66 @@ public class Empleados implements Serializable {
 	public void setCV(String CV) {
 		this.CV = CV;
 	}
+
+
+	public String getCorreo() {
+		return Correo;
+	}
+
+
+	public void setCorreo(String correo) {
+		Correo = correo;
+	}
+
+
+	public String getPassword() {
+		return Password;
+	}
+
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
+
+	public Date getFechaIngreso() {
+		return FechaIngreso;
+	}
+
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		FechaIngreso = fechaIngreso;
+	}
+
+
+	public Date getFechaRetiro() {
+		return FechaRetiro;
+	}
+
+
+	public void setFechaRetiro(Date fechaRetiro) {
+		FechaRetiro = fechaRetiro;
+	}
+
+
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
    
 }

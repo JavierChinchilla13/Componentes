@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+
+
 public class TesterTablas {
 
 	private static EntityManagerFactory entityManagerFactory = null;
@@ -17,7 +19,13 @@ public class TesterTablas {
 			
 			em = entityManagerFactory.createEntityManager();
 			
+			Empleados empleados = new Empleados();
+			EmpleadoService sp = new EmpleadoService();
 			
+			
+			for(Empleados p: sp.listar(em)) {
+				System.out.println("Nombre: "+p.getNombre());
+			}
 			
 			stopEntityManagerFactory();
 			
