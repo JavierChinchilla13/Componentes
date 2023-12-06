@@ -13,7 +13,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Empleados implements Serializable {
 
 	   
@@ -21,12 +21,11 @@ public class Empleados implements Serializable {
 	private Integer id;
 	private String Nombre;
 	private String Apellido;
-	private Date Cumpleaños;
+	
 	private Integer Telefono;
-	private Integer Vacaciones;
-	private String CV;
-	private String Direccion;
 	private Integer Cedula;
+	private Integer Vacaciones;
+	
 	private String Correo;
 	private String Password;
 	private Date FechaIngreso;
@@ -54,7 +53,6 @@ public class Empleados implements Serializable {
 		Cumpleaños = cumpleaños;
 		Telefono = telefono;
 		Vacaciones = vacaciones;
-		CV = cV;
 		Direccion = direccion;
 		Cedula = cedula;
 		Correo = correo;

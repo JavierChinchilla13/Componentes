@@ -5,6 +5,8 @@
 		<class>com.cci.manage.DetallesProyecto</class>
 		<class>com.cci.manage.Vacaciones</class>
 		<class>com.cci.manage.Projecto</class>
+		<class>com.cci.manage.Admin</class>
+		<class>com.cci.manage.Trabajador</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/managep-u?serverTimezone=UTC"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
