@@ -19,7 +19,7 @@ public class Vacaciones implements Serializable {
 	
 	@Id
 	private Integer idVacaciones;
-	private Integer dias;
+	
 	private Date fech_Inicio;
 	private Date fech_Final;
 	@OneToOne(cascade = CascadeType.ALL)
@@ -38,12 +38,7 @@ public class Vacaciones implements Serializable {
 	public void setIdVacaciones(Integer idVacaciones) {
 		this.idVacaciones = idVacaciones;
 	}   
-	public Integer getDias() {
-		return this.dias;
-	}
-	public void setDias(Integer dias) {
-		this.dias = dias;
-	}
+	
 	public Date getFech_Inicio() {
 		return fech_Inicio;
 	}

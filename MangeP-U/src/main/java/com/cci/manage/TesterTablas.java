@@ -19,13 +19,21 @@ public class TesterTablas {
 			
 			em = entityManagerFactory.createEntityManager();
 			
-			Empleados empleados = new Empleados();
+			/*Empleados empleados = new Empleados();
 			EmpleadoService sp = new EmpleadoService();
 			
 			
 			for(Empleados p: sp.listar(em)) {
 				System.out.println("Nombre: "+p.getNombre());
-			}
+			}*/
+			
+			Vacaciones vacaciones = new Vacaciones();
+			VacacionesService sp2 = new VacacionesService();
+				
+				
+				for(Vacaciones p: sp2.listar(em)) {
+					System.out.println("Nombre: "+p.getEstado());
+				}
 			
 			stopEntityManagerFactory();
 			

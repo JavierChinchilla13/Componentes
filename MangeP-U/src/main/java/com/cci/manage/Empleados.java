@@ -50,10 +50,10 @@ public class Empleados implements Serializable {
 		this.id = id;
 		Nombre = nombre;
 		Apellido = apellido;
-		Cumpleaños = cumpleaños;
+		//Cumpleaños = cumpleaños;
 		Telefono = telefono;
 		Vacaciones = vacaciones;
-		Direccion = direccion;
+		//Direccion = direccion;
 		Cedula = cedula;
 		Correo = correo;
 		Password = password;
@@ -73,9 +73,9 @@ public class Empleados implements Serializable {
 		this.id = id;
 		Nombre = nombre;
 		Apellido = apellido;
-		Cumpleaños = cumpleaños;
+		//Cumpleaños = cumpleaños;
 		Telefono = telefono;
-		Direccion = direccion;
+		//Direccion = direccion;
 		Cedula = cedula;
 		Correo = correo;
 		Password = password;
@@ -88,13 +88,13 @@ public class Empleados implements Serializable {
 
 
 
-	public String getDireccion() {
+	/*public String getDireccion() {
 		return Direccion;
 	}
 
 	public void setDireccion(String direccion) {
 		Direccion = direccion;
-	}
+	}*/
 
 
 	public Integer getCedula() {
@@ -126,13 +126,13 @@ public class Empleados implements Serializable {
 	public void setApellido(String Apellido) {
 		this.Apellido = Apellido;
 	}   
-	public Date getCumpleaños() {
+	/*public Date getCumpleaños() {
 		return this.Cumpleaños;
 	}
 
 	public void setCumpleaños(Date Cumpleaños) {
 		this.Cumpleaños = Cumpleaños;
-	}   
+	}   */
 	public Integer getTelefono() {
 		return this.Telefono;
 	}
@@ -147,13 +147,13 @@ public class Empleados implements Serializable {
 	public void setVacaciones(Integer Vacaciones) {
 		this.Vacaciones = Vacaciones;
 	}   
-	public String getCV() {
+	/*public String getCV() {
 		return this.CV;
 	}
 
 	public void setCV(String CV) {
 		this.CV = CV;
-	}
+	}*/
 
 
 	public String getCorreo() {

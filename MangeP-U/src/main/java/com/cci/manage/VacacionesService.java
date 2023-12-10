@@ -22,8 +22,8 @@ public class VacacionesService implements ICrud<Vacaciones>{
 	@Override
 	public List<Vacaciones> listar(EntityManager em) {
 		
-		String jpql = "Select t From " + Empleados.class.getSimpleName() + " t";
-		List<Empleados> lista = em.createQuery(jpql, Empleados.class).getResultList();
+		String jpql = "Select t From " + Vacaciones.class.getSimpleName() + " t";
+		List<Vacaciones> lista = em.createQuery(jpql, Vacaciones.class).getResultList();
 		
 		return null;
 	}
