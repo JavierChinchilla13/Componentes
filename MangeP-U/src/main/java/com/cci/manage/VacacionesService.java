@@ -25,7 +25,7 @@ public class VacacionesService implements ICrud<Vacaciones>{
 		String jpql = "Select t From " + Vacaciones.class.getSimpleName() + " t";
 		List<Vacaciones> lista = em.createQuery(jpql, Vacaciones.class).getResultList();
 		
-		return null;
+		return lista;
 	}
 
 	@Override
