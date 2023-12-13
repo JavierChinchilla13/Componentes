@@ -15,7 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQueries(value = {
-		
+
 		@NamedQuery(
 				name = "Vacaciones.findPK",
 				query = "SELECT d FROM Vacaciones d WHERE d.persona = :idParam")
@@ -24,7 +24,7 @@ import javax.persistence.*;
 
 public class Vacaciones implements Serializable {
 	
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idVacaciones;
 	
 	private Date fech_Inicio;

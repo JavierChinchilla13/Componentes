@@ -3,6 +3,10 @@ package com.cci.manage;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+
 
 public class EmpleadoService implements ICrud<Empleados> {
 
@@ -19,6 +23,12 @@ public class EmpleadoService implements ICrud<Empleados> {
 		}
 
 		return null;
+	}
+	
+	public Empleados getUserByIdWithPlainQuery(EntityManager em, String correo, String password) {
+	    Query jpqlQuery = em.createQuery("SELECT u FROM Empleados u WHERE u.correo=:correo");
+	    jpqlQuery.setParameter("coreo", correo);
+	    return (Empleados) jpqlQuery.getSingleResult();
 	}
 
 	@Override
@@ -63,6 +73,13 @@ public class EmpleadoService implements ICrud<Empleados> {
 
 		em.getTransaction().commit();
 
+	}
+	
+	public static Empleados findAllSQLWithParam(EntityManager em, Object obj) throws Exception {
+		Empleados query = (Empleados) em.createNamedQuery("Empleados.find", Empleados.class)
+		.setParameter("nombreParam", obj).getSingleResult();
+		return query;
+		
 	}
 
 	

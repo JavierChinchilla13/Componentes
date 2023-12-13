@@ -1,11 +1,16 @@
 package com.cci.manage;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+
+
 
 
 
@@ -25,49 +30,75 @@ public class TesterTablas {
 			
 			em = entityManagerFactory.createEntityManager();
 			
-			/*Empleados empleados = new Empleados();
-			EmpleadoService sp = new EmpleadoService();
-			
-			
-			for(Empleados p: sp.listar(em)) {
-				System.out.println("Nombre: "+p.getNombre());
-			}*/
-			
-			/*Vacaciones vacaciones = new Vacaciones();
-			VacacionesService sp2 = new VacacionesService();
-				
-				
-				for(Vacaciones p: sp2.listar(em)) {
-					System.out.println("Nombre: "+p.getEstado());
-				}
-			
-				
-				Empleados p =  new Empleados();
-				p.setId(new Integer("11"));
-				p.setNombre("CCI");
-			
-				
-				Vacaciones u =  new Vacaciones();
-				u.setIdVacaciones(new Integer("12"));
-				u.setPersona(p);
-				em.getTransaction().begin();
-				em.persist(u);
-				em.getTransaction().commit();*/
-			
-			
 			
 				
 			
 			Empleados p =  new Empleados();
-			p.setId(new Integer("11"));
-			p.setNombre("CCI");
+			EmpleadoService m = new EmpleadoService();
+			p.setId(new Integer("13"));
+			p.setNombre("PRUEBA");
 			
-			System.out.println("-----------------------");
+			
+			//System.out.print(m.getUserByIdWithPlainQuery(em,"javi@mail.com", "12345678"));
+			
+			
+			/*System.out.println("-----------------------");
 			Vacaciones profe = findPK(p);
 			System.out.println("Nombre localizado con JPQL por PK: : " + profe.getIdVacaciones());
 				
+			System.out.println("-----------------------");
+			List<Vacaciones> lista = findPK1(p);
+			for(Vacaciones pro: lista) {
+				System.out.println("Nombre: " + pro.getIdVacaciones());
+				Empleados localizado = em.find(Empleados.class, new Integer(13));
+			if(localizado != null) {
+				System.out.println("Se localizo el profesor: "+ localizado.getNombre());
 				
+			}
+			else {
+				System.out.println("No se encontro profesor");
+                                                 
+			}
+			localizado.getFechaIngreso();
+			
+			Vacaciones localizado2 = em.find(Vacaciones.class, new Integer(14));
+			if(localizado2 != null) {
+				System.out.println("Se localizo el profesor: "+ localizado2.getIdVacaciones());
 				
+			}
+			else {
+				System.out.println("No se encontro profesor");
+                                                 
+			}
+			for(Vacaciones pro: VacacionesService.findPK1(em, localizado)) {
+				System.out.println("Nombre: " + pro.getIdVacaciones());
+			}
+				
+			}*/
+			int a;
+			//Empleados x =  (int) a;
+			
+			VacacionesService v = new VacacionesService ();
+			
+			
+			
+			System.out.println(v.calculateVacationDays(em, 13));
+			
+			
+			
+			
+			//System.out.println(m.findAllSQLWithParam(em, localizado2));
+			
+			//v.eliminar(em, localizado2);
+
+			
+			
+			
+			//v.insertar(em, m1);
+			
+			
+				
+			
 				
 			stopEntityManagerFactory();
 			
@@ -79,6 +110,7 @@ public class TesterTablas {
 		}
 
 	}
+	
 	
 	public static Vacaciones findPK(Empleados idLocalizador) throws Exception{
 		Vacaciones vacaciones = (Vacaciones)em.createNamedQuery("Vacaciones.findPK").

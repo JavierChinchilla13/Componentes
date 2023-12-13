@@ -1,14 +1,20 @@
 package com.cci.manage;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.Temporal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 public class VacacionesService implements ICrud<Vacaciones>{
 
 	public VacacionesService(){
 		
 	}
+	
+	
 
 	@Override
 	public Vacaciones buscarPK(EntityManager em, Object obj) {
@@ -18,6 +24,15 @@ public class VacacionesService implements ICrud<Vacaciones>{
 		}
 		return null;
 	}
+	
+	public static List<Vacaciones>  findPK1(EntityManager em, Empleados idLocalizador) throws Exception{
+		TypedQuery<Vacaciones> query = em.createNamedQuery("Vacaciones.findPK" , Vacaciones.class);
+		String localizar = "%"+idLocalizador+"%";
+		query.setParameter("idParam", idLocalizador);
+				
+		return query.getResultList();
+	}
+	
 
 	@Override
 	public List<Vacaciones> listar(EntityManager em) {
@@ -64,6 +79,31 @@ public class VacacionesService implements ICrud<Vacaciones>{
 		em.getTransaction().commit();
 		
 	}
+	
+	public int calculateVacationDays(EntityManager em, int id) {
+		
+		
+		Empleados localizado = em.find(Empleados.class, id);
+		if(localizado != null) {
+			System.out.println("Se localizo el profesor: "+ localizado.getNombre());
+			
+		}
+		else {
+			System.out.println("No se encontro profesor");
+                                             
+		}
+		
+		LocalDate startLocalDate = localizado.getFechaIngreso().toLocalDate();
+        LocalDate endLocalDate = LocalDate.now();
+        // Calculate the number of days the employee has been employed
+		long daysEmployed = 0;
+        daysEmployed = ChronoUnit.DAYS.between(startLocalDate, endLocalDate);
+
+        // Calculate the vacation days based on the rule (1 day for every 30 days of employment)
+        int vacationDays = (int) (daysEmployed / 30);
+
+        return Math.toIntExact(vacationDays);
+    }
 
 	
 }
