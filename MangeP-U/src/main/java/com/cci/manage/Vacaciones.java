@@ -18,7 +18,10 @@ import javax.persistence.*;
 
 		@NamedQuery(
 				name = "Vacaciones.findPK",
-				query = "SELECT d FROM Vacaciones d WHERE d.persona = :idParam")
+				query = "SELECT d FROM Vacaciones d WHERE d.persona = :idParam"),
+		@NamedQuery(
+				name = "Vacaciones.find",
+				query = "SELECT v FROM Vacaciones v WHERE v.persona = :employeeId AND v.estado = 'Aprovado'")
 })
 
 

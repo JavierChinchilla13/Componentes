@@ -25,6 +25,17 @@ public class VacacionesService implements ICrud<Vacaciones>{
 		return null;
 	}
 	
+	public  List<Vacaciones>  findVacacion(EntityManager em, Empleados employeeId) throws Exception{
+	    int totalVacationDays = 0;
+	    
+	    TypedQuery<Vacaciones> query = em.createNamedQuery("Vacaciones.find" , Vacaciones.class);
+		String localizar = "%"+employeeId+"%";
+		query.setParameter("employeeId", employeeId);
+
+	        return query.getResultList();
+	    
+	}
+	
 	public static List<Vacaciones>  findPK1(EntityManager em, Empleados idLocalizador) throws Exception{
 		TypedQuery<Vacaciones> query = em.createNamedQuery("Vacaciones.findPK" , Vacaciones.class);
 		String localizar = "%"+idLocalizador+"%";
@@ -85,11 +96,11 @@ public class VacacionesService implements ICrud<Vacaciones>{
 		
 		Empleados localizado = em.find(Empleados.class, id);
 		if(localizado != null) {
-			System.out.println("Se localizo el profesor: "+ localizado.getNombre());
+			System.out.println("Se localizo empleado: "+ localizado.getNombre());
 			
 		}
 		else {
-			System.out.println("No se encontro profesor");
+			System.out.println("No se encontro empleado");
                                              
 		}
 		
@@ -104,6 +115,13 @@ public class VacacionesService implements ICrud<Vacaciones>{
 
         return Math.toIntExact(vacationDays);
     }
+
+
+	
+
+	   
+	        
+	
 
 	
 }

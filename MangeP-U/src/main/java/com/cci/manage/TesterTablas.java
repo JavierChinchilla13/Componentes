@@ -2,6 +2,7 @@ package com.cci.manage;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+
+
 
 
 
@@ -80,11 +83,40 @@ public class TesterTablas {
 			
 			VacacionesService v = new VacacionesService ();
 			
+			Empleados localizado = em.find(Empleados.class, 13);
+			if(localizado != null) {
+				System.out.println("Se localizo el profesor: "+ localizado.getNombre());
+				
+			}
+			else {
+				System.out.println("No se encontro profesor");
+	                                             
+			}
+			
+			int totalVacationDays = 0;
+			
+			List<Vacaciones> lista = v.findVacacion(em, localizado);
+			for(Vacaciones pro: lista) {
+				//System.out.println("Nombre: " + pro.getFech_Inicio());		
+				 LocalDate startLocalDate = pro.getFech_Inicio().toLocalDate();
+		            LocalDate endLocalDate = pro.getFech_Final().toLocalDate();
+		            long days = ChronoUnit.DAYS.between(startLocalDate, endLocalDate);
+		            System.out.println("+++++" + days);
+		            totalVacationDays += days;
+			}
+			System.out.println(totalVacationDays);
+			
+			//System.out.println("------"+v.find(em, localizado));
+			int nose = v.calculateVacationDays(em, 13);
+			System.out.println(nose-totalVacationDays);
+			//v.calculateVacationBalance(em, 13);
+			//v.calculateVacationDays(em, 13);
 			
 			
-			System.out.println(v.calculateVacationDays(em, 13));
+			//System.out.println(v.calculateVaca(em, 6));
 			
-			
+			em.getTransaction().begin();
+			em.getTransaction().commit();
 			
 			
 			//System.out.println(m.findAllSQLWithParam(em, localizado2));
