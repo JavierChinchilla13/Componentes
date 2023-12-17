@@ -18,6 +18,7 @@ public class Projecto implements Serializable {
 	private Integer Id;
 	private String nombreProyecto;
 	private String Descripcion;
+	private String estado;
 	private static final long serialVersionUID = 1L;
 
 	public Projecto() {
@@ -44,5 +45,12 @@ public class Projecto implements Serializable {
 	public void setDescripcion(String Descripcion) {
 		this.Descripcion = Descripcion;
 	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
    
+	
 }
