@@ -12,14 +12,6 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 
-
-
-
-
-
-
-
-
 public class TesterTablas {
 
 	private static EntityManagerFactory entityManagerFactory = null;
@@ -33,6 +25,13 @@ public class TesterTablas {
 			
 			em = entityManagerFactory.createEntityManager();
 			
+		
+			
+			
+			EmpleadoService m = new EmpleadoService();
+			
+			
+	
 			
 			stopEntityManagerFactory();
 			
