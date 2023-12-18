@@ -21,13 +21,14 @@ import javax.persistence.*;
 			name="Empleados.find",
 			query="SELECT Round((DateDiff(localTime(), FechaIngreso) / 30),0) FROM Empleados where empleados.ID=:nombreParam",
 			resultClass =Empleados.class)
-			
+	
 })
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Empleados implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String Nombre;
 	private String Apellido;
