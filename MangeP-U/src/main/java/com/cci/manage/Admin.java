@@ -13,10 +13,12 @@ import javax.persistence.*;
 public class Admin extends Empleados implements Serializable {
 
 	
+	
 	private static final long serialVersionUID = 1L;
 
 	public Admin() {
 		super();
+		
 	}
    
 }

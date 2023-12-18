@@ -9,11 +9,6 @@ import java.util.List;
 import javax.persistence.*;
 
 
-
-/**
- * Entity implementation class for Entity: Empleados
- *
- */
 @Entity
 @NamedNativeQueries({
 	
@@ -23,6 +18,8 @@ import javax.persistence.*;
 			resultClass =Empleados.class)
 	
 })
+
+@Table(name = "empleados")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Empleados implements Serializable {
 
@@ -33,10 +30,11 @@ public class Empleados implements Serializable {
 	private String Nombre;
 	private String Apellido;
 	
+	private Date Cumpleaños;
+	private String Direccion;
 	private Integer Telefono;
 	private Integer Cedula;
 	private Integer Vacaciones;
-	
 	private String Correo;
 	private String Password;
 	private Date FechaIngreso;

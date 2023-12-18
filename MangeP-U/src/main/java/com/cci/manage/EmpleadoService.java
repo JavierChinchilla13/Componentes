@@ -83,9 +83,9 @@ public class EmpleadoService implements ICrud<Empleados> {
 	}
 
 	public String Credenciales(EntityManager em, String correo, String clave) {
-        TypedQuery<String> query = em.createQuery("SELECT e.Permiso FROM Empleado e WHERE e.Correo = :Correo AND e.Clave = :Clave", String.class);
+        TypedQuery<String> query = em.createQuery("SELECT e.tipo FROM Empleados e WHERE e.Correo = :Correo AND e.Password = :Password", String.class);
         query.setParameter("Correo", correo);
-        query.setParameter("Clave", clave);
+        query.setParameter("Password", clave);
 
         try {
             String tipoEmpleado = query.getSingleResult();
