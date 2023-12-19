@@ -224,5 +224,6 @@ public class Empleados implements Serializable {
 		this.tipo = tipo;
 	}
 	
+	
    
 }

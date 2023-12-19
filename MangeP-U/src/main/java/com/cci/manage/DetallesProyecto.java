@@ -16,13 +16,13 @@ public class DetallesProyecto implements Serializable {
 
 	   
 
-    @Id
-    @ManyToOne
-    private Projecto fk_proyecto;
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Projecto fk_proyecto;
 
-    @Id
-    @ManyToOne 
-    private Empleados fk_empleado;
+	@Id
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Empleados fk_empleado;
 
     private String Rol;
    

@@ -26,8 +26,8 @@ public class EmpleadoService implements ICrud<Empleados> {
 	}
 	
 	public Empleados getUserByIdWithPlainQuery(EntityManager em, String correo, String password) {
-	    Query jpqlQuery = em.createQuery("SELECT u FROM Empleados u WHERE u.correo=:correo");
-	    jpqlQuery.setParameter("coreo", correo);
+	    Query jpqlQuery = em.createQuery("SELECT u FROM Empleados u WHERE u.Correo=:correo");
+	    jpqlQuery.setParameter("correo", correo);
 	    return (Empleados) jpqlQuery.getSingleResult();
 	}
 
@@ -97,5 +97,13 @@ public class EmpleadoService implements ICrud<Empleados> {
 
       
     }
+	public List<Empleados> obtenerEmpleadosPorPermiso(EntityManager em, String permiso) {
+        TypedQuery<Empleados> query = em.createQuery("SELECT e FROM Empleados e WHERE e.tipo = :Permiso", Empleados.class);
+        query.setParameter("Permiso", permiso);
+
+        return query.getResultList();
+    }
+	
+	
 	
 }
