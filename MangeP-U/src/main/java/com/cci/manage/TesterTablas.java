@@ -29,9 +29,9 @@ public class TesterTablas {
 			
 			
 			EmpleadoService m = new EmpleadoService();
-			Empleados t = m.Credenciales(em, "Arturo", "123");
 			
-			System.out.println(t.getTipo());
+			
+			
 			
 			stopEntityManagerFactory();
 			

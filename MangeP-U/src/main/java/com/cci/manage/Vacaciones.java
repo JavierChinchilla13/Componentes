@@ -27,7 +27,8 @@ import javax.persistence.*;
 
 public class Vacaciones implements Serializable {
 	
-	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Id 
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer idVacaciones;
 	
 	private Date fech_Inicio;
